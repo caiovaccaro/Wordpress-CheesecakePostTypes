@@ -1,0 +1,12 @@
+<table class="{{ table_class }}">
+	<tr>
+		{% if remove_label != true %}
+			<td class="{{ label_cell_class }}">
+				{% include 'label.html' %}
+			</td>
+		{% endif %}
+		<td class="{{ input_cell_class }}">
+			{% include template ignore missing %}
+		</td>
+	</tr>
+</table>

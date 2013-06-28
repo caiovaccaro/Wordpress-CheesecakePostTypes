@@ -1,0 +1,235 @@
+@import "components/chosen/chosen.css";
+.postbox {
+  *zoom: 1;
+}
+.postbox:before,
+.postbox:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.postbox:after {
+  clear: both;
+}
+.atencao {
+  color: red;
+}
+.custom-table-primary {
+  width: 100%;
+}
+.custom-label-primary-table {
+  width: 24%;
+}
+.custom-label-primary {
+  width: 100%;
+  min-width: auto;
+  font-size: 15px;
+  float: left;
+  position: relative;
+}
+.custom-input-primary {
+  float: left;
+  width: 100%;
+  padding: 7px;
+  margin-bottom: 8px;
+  resize: none;
+}
+.custom-input-primary.idiomas {
+  width: 64%;
+}
+.custom-checkbox-loop-primary,
+.custom-radio-loop-primary {
+  background: white;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  border: 1px solid #dfdfdf;
+  float: left;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.custom-checkbox-loop-primary input[type=radio],
+.custom-radio-loop-primary input[type=radio] {
+  position: relative;
+  top: -1px;
+  margin-right: 3px;
+  margin-left: 8px;
+}
+.custom-checkbox-loop-primary input[type=radio]:first-child,
+.custom-radio-loop-primary input[type=radio]:first-child {
+  margin-left: 0;
+}
+.custom-checkbox-single-inline {
+  display: block;
+  float: left;
+  font-size: 15px;
+}
+.custom-checkbox-single-inline input[type=checkbox] {
+  position: relative;
+  top: 2px;
+}
+.custom-checkbox-loop-inline {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-bottom: 12px;
+  margin-top: 6px;
+}
+.custom-select-single,
+.custom-select-loop {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.custom-multiselect {
+  *zoom: 1;
+}
+.custom-multiselect:before,
+.custom-multiselect:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.custom-multiselect:after {
+  clear: both;
+}
+.custom-checkbox-inline {
+  display: inline;
+  margin-right: 5px;
+}
+.custom-checkbox-block {
+  display: block;
+  margin-bottom: 5px;
+}
+.custom_admin_descricao {
+  clear: both;
+  font-style: italic;
+  color: #777;
+  font-size: 11px;
+  width: 100%;
+  margin-left: 14%;
+}
+.normal_float {
+  display: block;
+  float: left;
+  position: relative;
+  top: 7px;
+  font-size: 15px;
+  width: 100%;
+}
+.chzn-container {
+  margin-top: 4px;
+}
+.chzn-choices {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #dfdfdf;
+  padding: 7px 7px 4px;
+  background: white;
+}
+.chzn-choices .search-field .default {
+  padding: 7px 7px 4px !important;
+  margin: 4px 0 !important;
+}
+#submitdiv.destaques {
+  text-align: center;
+}
+.count_down {
+  text-align: left;
+  font-style: italic;
+  color: #777;
+  font-size: 11px;
+}
+.wp_bnd_table {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-collapse: collapse;
+  margin: 12px 0 0;
+}
+.wp_bnd_table input[type=text],
+.wp_bnd_table textarea {
+  border: 1px solid #aaa;
+  padding: 7px;
+  background: white;
+  width: 100%;
+  margin-bottom: 4px;
+  resize: none;
+}
+.wp_bnd_table td {
+  border: 1px solid #ddd;
+}
+.wp_bnd_table .imagem {
+  width: 100px;
+  height: 100px;
+  padding: 11px 11px 9px;
+  text-align: center;
+}
+.wp_bnd_table .info,
+.wp_bnd_table .video {
+  text-align: center;
+  padding: 11px;
+}
+.wp_bnd_table .upload_imagem {
+  width: 150px;
+  padding: 11px;
+  text-align: center;
+}
+.wp_bnd_table .link {
+  padding: 11px;
+  text-align: center;
+}
+.wp_bnd_table .tipo {
+  padding: 11px;
+  width: 120px;
+}
+.wp_bnd_table .conteudo_site {
+  padding: 11px;
+}
+.wp_bnd_table .conteudo_site .custom-select-loop {
+  width: 100%;
+  margin-bottom: 4px;
+}
+.wp_bnd_table .link_destaque_home {
+  padding: 11px;
+  width: 70%;
+}
+.wp_bnd_table .link_destaque_home .custom-select-loop {
+  width: 100%;
+  margin-bottom: 4px;
+}
+.wp_bnd_table .link_destaque_home input[type=checkbox] {
+  margin-right: 4px;
+}
+.wp_bnd_table .link_destaque_home .link_texto {
+  margin-top: 8px;
+  width: 100%;
+  display: none;
+}
+.wp_bnd_table .ordem {
+  text-align: center;
+}
+.wp_bnd_table .ordem input {
+  width: 25px;
+}
+.wp_bnd_table .remover {
+  text-align: center;
+  font-size: 20px;
+  width: 95px;
+}
+.wp_bnd_table .remover .remover-button {
+  color: #999;
+  cursor: pointer;
+}
+.wp_bnd_table .remover .remover-button:hover {
+  color: #333;
+}
+.adicionar_mais {
+  padding: 7px;
+  float: right;
+  margin: 20px 0;
+}
