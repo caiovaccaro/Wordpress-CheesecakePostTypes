@@ -7,7 +7,9 @@ It uses CSS for a responsive and clean look and also [Chosen](http://harvesthq.g
 
 Setup
 -----
-Place the 'CheesecakePostTypes' folder inside your theme folder in 'wp-content/themes/yourtheme/CheesecakePostTypes' and in your theme 'functions.php', require the base file of the project.
+Place the 'CheesecakePostTypes' folder inside your theme folder:
+'wp-content/themes/yourtheme/CheesecakePostTypes'  
+And in your theme 'functions.php', require the base file of the project:
 
 ```php
 require_once 'CheesecakePostTypes/Base.php';
