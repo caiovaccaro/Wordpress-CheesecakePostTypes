@@ -7,7 +7,7 @@
 	// Loading twig
 	Twig_Autoloader::register();
 	// Load our classes
-	$classLoader = new SplClassLoader(PRJ_NAMESPACE, __DIR__.'/lib');
+	$classLoader = new SplClassLoader(PRJ_NAMESPACE, PRJ_BASE.'/lib');
 	$classLoader->register();
 	$loader = new Twig_Loader_Filesystem(PRJ_BASE.'/templates');
 	$twig = new Twig_Environment($loader, array(
