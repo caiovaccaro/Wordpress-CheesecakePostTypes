@@ -92,16 +92,16 @@ class PostType
 
 		add_action( 'add_meta_boxes', function() use($name, $identifier, $post_type, $place, $priority, $inputs, $content_nonce_name)
 		{
+			global $post;
+			$post_id = $post->ID;
 
 			add_meta_box( $meta_box_name, $name,
-				function() use($post_type, $inputs, $content_nonce_name)
+				function() use($post_id, $post_type, $inputs, $content_nonce_name)
 				{
 				    wp_nonce_field( plugin_basename(__FILE__), $content_nonce_name );
-
-				    global $post;
-
+				    
 				    foreach ($inputs as $input) {
-				      	$basic_params = array('context'=>$post_type, 'post'=>$post->ID);
+				      	$basic_params = array('context'=>$post_type, 'post'=>$post_id);
 				      	$params = array_merge($input['params'], $basic_params);
 				        $class = 'CheesecakePostTypes\Input'.ucfirst($input['type']);
 				        $meta_box_input = new $class($params);

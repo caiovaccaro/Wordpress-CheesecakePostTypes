@@ -26,7 +26,7 @@ class InputLoopMultiselect extends Forms
 		$default_select_text = $remove_label ? $this->name : $this->default_select_text;
 		$max_multiple = $this->max_multiple;
 		$chosen_class = $this->chosen_class;
-		$placeholder = $htis->placeholder;
+		$placeholder = $this->placeholder;
 
 		$args = array( 'post_type' => $this->post_type, 'nopaging' => true );
 		$loop = new \WP_Query( $args );

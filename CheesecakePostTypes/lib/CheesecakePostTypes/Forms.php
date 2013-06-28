@@ -45,7 +45,6 @@ abstract class Forms
 
 		if(!isset($args['post'])) {
 			global $post;
-
 			$this->post = $post->ID;
 		}
 
