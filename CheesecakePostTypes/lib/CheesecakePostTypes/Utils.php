@@ -110,7 +110,7 @@ class Utils
 	public function getCustomFieldFromSlug($post_type, $id)
 	{
 		$args = array( 'post_type' => $post_type, 'nopaging' => true, 'name' => $id );
-		$loop = new WP_Query( $args );
+		$loop = new \WP_Query( $args );
 
 		if($loop->have_posts()) : while($loop->have_posts()) : $loop->the_post();
 
@@ -145,7 +145,7 @@ class Utils
 			$taxonomies = array();
 
 			foreach ( $taxonomy as $term ) {
-				$url = add_query_arg(array('taxonomia'=>$post_type.$this->separator.$tax, 'tv'=>$term->slug), $path);
+				$url = add_query_arg(array('taxonomy'=>$post_type.$this->separator.$tax, 'tv'=>$term->slug), $path);
 				if($link == 'link') {
 					$atag = '<a href="'.$url.'">';
 					$aclose = '</a>';
