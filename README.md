@@ -3,16 +3,15 @@ CheesecakePostTypes
 
 CheesecakePostTypes helps you to build your Wordpress project. In big websites with a lot of post types and custom fields you can get your self repeating a lot of code. This Class is a result of just that.
 
-It uses CSS for a responsive and clean look on the backend and also [Chosen](http://harvesthq.github.io/chosen/) for multiple selects.
+It uses CSS for a responsive and clean look and also [Chosen](http://harvesthq.github.io/chosen/) for multiple selects.
 
 Setup
 -----
-- Place the 'CheesecakePostTypes' folder inside your theme folder in 'wp-content/themes/yourtheme/CheesecakePostTypes'.
-- In your theme 'functions.php', require the base file of the project.
+Place the 'CheesecakePostTypes' folder inside your theme folder in 'wp-content/themes/yourtheme/CheesecakePostTypes' and in your theme 'functions.php', require the base file of the project.
+
 ```php
 require_once 'CheesecakePostTypes/Base.php';
 ```
-That's it!
 
 Create a Post Type
 ------------------
@@ -69,5 +68,5 @@ $companies = new CheesecakePostTypes\CheesecakeForms\InputLoopSelect(array('name
 $companies->render();
 ```
 
-Enjoy and feel free to extend CheesecakePostTypes.
+Enjoy and feel free to extend CheesecakePostTypes.  
 Extended readme with all options coming soon.
