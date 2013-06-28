@@ -1,8 +1,6 @@
 <?php
 
-namespace CheesecakePostTypes\CheesecakeForms;
-
-use CheesecakePostTypes;
+namespace CheesecakePostTypes;
 
 class InputLoopSelect extends Forms
 {
@@ -29,7 +27,7 @@ class InputLoopSelect extends Forms
 
 			$value = get_the_title();
 			$key = str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
-			$selected = $this->frontend_selected ? CheesecakePostTypes\Utils::checkForFrontendSelected('select', $key, $this->compare) : CheesecakePostTypes\Utils::checkForSelect($this->post, $this->metaName(), $key);
+			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) : Utils::checkForSelect($this->post, $this->metaName(), $key);
 			
 			if($post->ID !== $this->post) {
 				$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $value);

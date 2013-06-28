@@ -1,8 +1,6 @@
 <?php
 
-namespace CheesecakePostTypes\CheesecakeForms;
-
-use CheesecakePostTypes;
+namespace CheesecakePostTypes;
 
 class InputMultiselect extends Forms
 {
@@ -32,7 +30,7 @@ class InputMultiselect extends Forms
 
 		foreach ($this->options as $option) {
 			$key = $this->sanitize($option);
-			$selected = $this->frontend_selected ? CheesecakePostTypes\Utils::checkForFrontendSelected('select', $option, $this->compare) : CheesecakePostTypes\Utils::checkForMultipleSelect($this->post, $this->metaName(), $option);
+			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) : Utils::checkForMultipleSelect($this->post, $this->metaName(), $key);
 			$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $option);
 		}
 

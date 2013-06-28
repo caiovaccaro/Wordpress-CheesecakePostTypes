@@ -1,8 +1,6 @@
 <?php
 
-namespace CheesecakePostTypes\CheesecakeForms;
-
-use CheesecakePostTypes;
+namespace CheesecakePostTypes;
 
 class InputMultipleCheckbox extends Forms
 {
@@ -26,7 +24,7 @@ class InputMultipleCheckbox extends Forms
 
 		foreach ($this->options as $option) {
 			$key = $this->sanitize($option);
-			$selected = $this->frontend_selected ? CheesecakePostTypes\Utils::checkForFrontendSelected('select', $option, $this->compare) : CheesecakePostTypes\Utils::checkForCheckbox($this->post, $this->metaName(), $option);
+			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);
 			$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $option);
 		}
 

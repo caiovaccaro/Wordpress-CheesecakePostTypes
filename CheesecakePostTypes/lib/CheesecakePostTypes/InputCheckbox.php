@@ -1,8 +1,6 @@
 <?
 
-namespace CheesecakePostTypes\CheesecakeForms;
-
-use CheesecakePostTypes;
+namespace CheesecakePostTypes;
 
 class InputCheckbox extends Forms
 {
@@ -13,17 +11,12 @@ class InputCheckbox extends Forms
 		parent::__construct($args);
 	}
 
-	public function getValue()
-	{
-		return $this->value;
-	}
-
 	public function render()
 	{
 		$checkbox_class = $this->checkbox_class;
 		$value = $this->value;
 		$key = $this->sanitize($value);
-		$selected = $this->frontend_selected ? CheesecakePostTypes\Utils::checkForFrontendSelected('select', $value, $this->compare) : CheesecakePostTypes\Utils::checkForCheckbox($this->post, $this->metaName(), $this->value);
+		$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $value, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);
 
 		$data = array(
 			'checkbox_class' => $checkbox_class,

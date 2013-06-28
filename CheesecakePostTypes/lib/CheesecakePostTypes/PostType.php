@@ -77,7 +77,7 @@ class PostType
 	public function addMetabox($params, $inputs)
 	{
 		$name = $params['name'];
-		$identifier = strtolower(str_replace(' ', $this->separator, remove_accents( $name )));
+		$identifier = $this->sanitize($name);
 		$post_type = $this->unique_name;
 		$place = $params['place'] ? $params['place'] : 'normal';
 		$priority = $params['priority'] ? $params['priority'] : 'low';
@@ -87,7 +87,7 @@ class PostType
 		$inputs_to_save = array();
 
 		foreach ($inputs as $input) {
-		    $inputs_to_save[] = CheesecakeForms\Forms::retrieveMetaName($input['params'], $post_type);
+		    $inputs_to_save[] = Forms::retrieveMetaName($input['params'], $post_type);
 		}
 
 		add_action( 'add_meta_boxes', function() use($name, $identifier, $post_type, $place, $priority, $inputs, $content_nonce_name)
@@ -103,7 +103,7 @@ class PostType
 				    foreach ($inputs as $input) {
 				      	$basic_params = array('context'=>$post_type, 'post'=>$post->ID);
 				      	$params = array_merge($input['params'], $basic_params);
-				        $class = 'CheesecakePostTypes\CheesecakeForms\Input'.ucfirst($input['type']);
+				        $class = 'CheesecakePostTypes\Input'.ucfirst($input['type']);
 				        $meta_box_input = new $class($params);
 				        $meta_box_input->render();
 				    }
@@ -150,7 +150,7 @@ class PostType
 	public function addTaxonomy($params)
 	{
 		$post_type = $this->unique_name;
-		$name = $post_type.$this->separator.strtolower(str_replace(' ', $this->separator, remove_accents( $params['singular'] )));
+		$name = $post_type.$this->separator.$this->sanitize($params['singular']);
 		$singular = $params['singular'];
 		$plural = $params['plural'] ? $params['plural'] : $singular.'s';
 		$hierarchical = $params['hierarchical'] == 'true' ? true : false;

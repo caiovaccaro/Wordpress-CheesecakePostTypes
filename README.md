@@ -66,7 +66,7 @@ Frontend
 --------
 You can use all forms components that CheesecakePostType uses on the frontend also. For example:
 ```php
-$companies = new CheesecakePostTypes\CheesecakeForms\InputLoopSelect(array('name'=>'Companies', 'post_type'=>'companies'));
+$companies = new CheesecakePostTypes\InputLoopSelect(array('name'=>'Companies', 'post_type'=>'companies'));
 $companies->render();
 ```
 

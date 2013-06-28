@@ -1,6 +1,6 @@
 <?php
 
-namespace CheesecakePostTypes\CheesecakeForms;
+namespace CheesecakePostTypes;
 
 abstract class Forms
 {

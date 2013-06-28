@@ -1,6 +1,6 @@
 <?php
 
-namespace CheesecakePostTypes\CheesecakeForms;
+namespace CheesecakePostTypes;
 
 class InputText extends Forms
 {
@@ -15,7 +15,7 @@ class InputText extends Forms
 	{
 		$value = esc_attr( get_post_meta( $this->post, $this->metaName(), true ) );
 		$text_class = $this->text_class;
-
+		
 		$data = array(
 			'value' => $value,
 			'text_class' => $text_class
