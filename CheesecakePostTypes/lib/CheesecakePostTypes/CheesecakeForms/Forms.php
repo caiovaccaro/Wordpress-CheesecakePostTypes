@@ -42,6 +42,16 @@ abstract class Forms
 				$this->$key = $value;
 			}
 		}
+
+		if(!isset($args['post'])) {
+			global $post;
+
+			$this->post = $post->ID;
+		}
+
+		if(!isset($args['context'])) {
+			$this->context = 'cheesecake';
+		}
 	}
 
 	public function sanitize($string)

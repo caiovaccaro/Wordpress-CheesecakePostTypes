@@ -6,7 +6,7 @@ use CheesecakePostTypes;
 
 class InputLoopSelect extends Forms
 {
-	public $default_select_text = 'Escolha...';
+	public $default_select_text = 'Choose...';
 	public $select_wrapper_class = 'custom-select-loop';
 	// Post type for loops
 	public $post_type;

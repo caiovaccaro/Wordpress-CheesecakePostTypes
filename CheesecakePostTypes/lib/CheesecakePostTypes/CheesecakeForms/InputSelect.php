@@ -6,7 +6,7 @@ use CheesecakePostTypes;
 
 class InputSelect extends Forms
 {
-	public $default_select_text = 'Escolha...';
+	public $default_select_text = 'Choose...';
 	public $select_wrapper_class = 'custom-select-single';
 	// Options for checkboxes/selects
 	public $options;

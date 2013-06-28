@@ -1,2 +1,2 @@
-wordpress.postTypes
+CheesecakePostTypes
 ===================

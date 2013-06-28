@@ -33,7 +33,4 @@
 			array('jquery')
 		);
 	});
-
-	// checklist
-	// readme
 ?>

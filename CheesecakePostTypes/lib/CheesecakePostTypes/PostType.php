@@ -24,7 +24,12 @@ class PostType
 			$this->plural_name = $this->singular_name.'s';
 		}
 
-		$this->unique_name = strtolower(str_replace(' ', $this->separator, remove_accents( $this->plural_name )));
+		$this->unique_name = $this->sanitize($this->plural_name);
+	}
+
+	public function sanitize($string)
+	{
+		return strtolower(str_replace(' ', $this->separator, remove_accents( $string )));
 	}
 
 	public function register()
@@ -38,21 +43,21 @@ class PostType
 		$labels = array(
 			'name'               => __( $plural ),
 			'singular_name'      => __( $singular ),
-			'add_new'            => __( 'Novo' ),
-			'add_new_item'       => __( 'Novo '.$singular ),
-			'edit_item'          => __( 'Editar '.$singular ),
-			'new_item'           => __( 'Novo '.$singular ),
-			'all_items'          => __( 'Todos os '.$plural ),
-			'view_item'          => __( 'Ver '.$singular ),
-			'search_items'       => __( 'Procurar '.$plural ),
-			'not_found'          => __( 'Nenhum '.$singular.' encontrado' ),
-			'not_found_in_trash' => __( 'Nenhum '.$singular.' encontrado na lixeira' ), 
+			'add_new'            => __( 'New' ),
+			'add_new_item'       => __( 'New '.$singular ),
+			'edit_item'          => __( 'Edit '.$singular ),
+			'new_item'           => __( 'New '.$singular ),
+			'all_items'          => __( 'All '.$plural ),
+			'view_item'          => __( 'See '.$singular ),
+			'search_items'       => __( 'Search '.$plural ),
+			'not_found'          => __( 'None '.$singular.' found' ),
+			'not_found_in_trash' => __( 'None '.$singular.' found in trash' ), 
 			'parent_item_colon'  => '',
 			'menu_name'          => $plural
 		);
 		$args = array(
 			'labels'        => $labels,
-			'description'   => 'Cadastro de '.$plural,
+			'description'   => 'Registration of '.$plural,
 			'public'        => true,
 			'menu_position' => $menu_position,
 			'supports'      => $supports,
@@ -89,21 +94,21 @@ class PostType
 		{
 
 			add_meta_box( $meta_box_name, $name,
-						  function() use($post_type, $inputs, $content_nonce_name)
-						  {
-						      wp_nonce_field( plugin_basename(__FILE__), $content_nonce_name );
+				function() use($post_type, $inputs, $content_nonce_name)
+				{
+				    wp_nonce_field( plugin_basename(__FILE__), $content_nonce_name );
 
-						      global $post;
+				    global $post;
 
-						      foreach ($inputs as $input) {
-						      	  $basic_params = array('context'=>$post_type, 'post'=>$post->ID);
-						      	  $params = array_merge($input['params'], $basic_params);
-						          $class = 'CheesecakePostTypes\CheesecakeForms\Input'.ucfirst($input['type']);
-						          $meta_box_input = new $class($params);
-						          $meta_box_input->render();
-						      }
-						  },
-						  $post_type, $place, $priority );
+				    foreach ($inputs as $input) {
+				      	$basic_params = array('context'=>$post_type, 'post'=>$post->ID);
+				      	$params = array_merge($input['params'], $basic_params);
+				        $class = 'CheesecakePostTypes\CheesecakeForms\Input'.ucfirst($input['type']);
+				        $meta_box_input = new $class($params);
+				        $meta_box_input->render();
+				    }
+				},
+			$post_type, $place, $priority );
 		});
 		
 		$this->setupSave(array(
@@ -158,14 +163,14 @@ class PostType
 				'labels' => array(
 					'name' => _x( $plural, 'taxonomy general name' ),
 					'singular_name' => _x( $singular, 'taxonomy singular name' ),
-					'search_items' =>  __( 'Procurar '.$plural ),
-					'all_items' => __( 'Todas '.$plural ),
-					'parent_item' => __( $plural.' "Pai"' ),
-					'parent_item_colon' => __( $singular.' "Pai":' ),
-					'edit_item' => __( 'Editar '.$singular ),
-					'update_item' => __( 'Atualizar '.$singular ),
-					'add_new_item' => __( 'Adicionar nova '.$singular ),
-					'new_item_name' => __( 'Novo nome de '.$singular ),
+					'search_items' =>  __( 'Search '.$plural ),
+					'all_items' => __( 'All '.$plural ),
+					'parent_item' => __( 'Parent '.$plural ),
+					'parent_item_colon' => __( 'Parent '.$singular.':' ),
+					'edit_item' => __( 'Edit '.$singular ),
+					'update_item' => __( 'Update '.$singular ),
+					'add_new_item' => __( 'Add new '.$singular ),
+					'new_item_name' => __( 'New name of '.$singular ),
 					'menu_name' => __( $plural ),
 				),
 				'rewrite' => array(
