@@ -5,7 +5,7 @@ You can create a post type just with 'singular_name', but if you want you can se
 - plural_name (string, optional)
 - menu_name (string, optional)
 - menu_position (number, optional)
-- supports (array, optional)
+- supports (array, optional)  
 For more details about the 'supports' parameter and 'menu_position' refer to the [Codex](http://codex.wordpress.org/Function_Reference/register_post_type#Arguments).  
 Wordpress Post Types has a lot of flexibility and different options. More of them can be added in the future.  
   

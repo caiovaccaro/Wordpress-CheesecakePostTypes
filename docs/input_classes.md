@@ -19,7 +19,7 @@ Here is a list of all classes available:
 - InputSelect
 - InputMultiselect
 - InputLoopSelect
-- InputLoopMultiselect
+- InputLoopMultiselect  
   
   
 The major difference between using Input Classes separately is that you can define the 'context' option which will define the prefix of your input id and name. When used to create a metabox the prefix is always the post type identifier.  

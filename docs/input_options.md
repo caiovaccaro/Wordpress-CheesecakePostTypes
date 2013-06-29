@@ -23,7 +23,7 @@ The first parameter of the inputs array is 'type'. Here is the list of all the t
 - select
 - multiselect
 - loopSelect
-- loopMultiselect
+- loopMultiselect  
   
 When a 'type' prefix is multiple it means you have to set its options. When a 'type' prefix is loop it means you need to specify the post type from which it will fetch data for your input.  
 You can use all types separately. Please refer to the [Input Classes Reference](input_classes.md).
@@ -36,7 +36,7 @@ All types share these common options:
 - frontend_selected (string, optional. Using as a separate class)
 - compare (string, optional. Using as a separate class)
 - class (string, optional)
-- remove_label (string, optional)
+- remove_label (string, optional)  
   
 The 'name' option define the label and suffix of your input id and name.  
 You can use the 'input' option if you want to overwrite the suffix of your input id and name.  

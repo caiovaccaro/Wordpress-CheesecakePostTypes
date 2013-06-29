@@ -3,7 +3,7 @@ Metaboxes Options
 When you create a metabox you define a few options:
 - name (string)
 - place (string, optional)
-- priority (string, optional)
+- priority (string, optional)  
   
 Name appears as the tile of the box. For details about 'place'(in the Codex as 'context') and 'priority' please refer to the [Codex](http://codex.wordpress.org/Function_Reference/add_meta_box#Parameters).  
   
