@@ -51,6 +51,10 @@ abstract class Forms
 		if(!isset($args['context'])) {
 			$this->context = 'cheesecake';
 		}
+
+		if(isset($args['frontend_selected'])) {
+			$this->frontend_selected = $args['frontend_selected'] == 'true' ? true : false;
+		}
 	}
 
 	public function sanitize($string)

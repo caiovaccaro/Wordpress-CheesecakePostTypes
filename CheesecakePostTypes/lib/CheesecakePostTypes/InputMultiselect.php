@@ -24,7 +24,7 @@ class InputMultiselect extends Forms
 		$multiselect_wrapper_class = $this->multiselect_wrapper_class;
 		$multiselect_class = $this->multiselect_class;
 		$default_select_text = $remove_label ? $this->name : $this->default_select_text;
-		$max_multiple = $this->max_multiple;
+		$max_multiple = $this->max_multiple ? 'max="'.$this->max_multiple.'"';
 		$chosen_class = $this->chosen_class;
 		$placeholder = $this->placeholder;
 

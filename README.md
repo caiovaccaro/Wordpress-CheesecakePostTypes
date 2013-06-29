@@ -3,7 +3,9 @@ CheesecakePostTypes
 
 CheesecakePostTypes helps you to build your Wordpress project. In big websites with a lot of post types and custom fields you can get your self repeating a lot of code. This Class is a result of just that.
 
-It uses CSS for a responsive and clean look and also [Chosen](http://harvesthq.github.io/chosen/) for multiple selects.
+It uses CSS for a responsive and clean look and also [Chosen](http://harvesthq.github.io/chosen/) for multiple selects.  
+
+**PHP 5.3+ required.**  
 
 Setup
 -----
@@ -26,6 +28,7 @@ $movies = new CheesecakePostTypes\PostType($postType);
 $movies->register();
 ```  
 ![Wordpress Post Type](http://192.81.217.195/github/cheesecakePostTypes/1.jpg)  
+See the [Post Type Options Reference](docs/post_type_options.md) for details about all available options.  
 
 Create Meta boxes
 -----------------
@@ -42,6 +45,8 @@ $metabox = array(
 $movies->addMetabox($metabox, $inputs);
 ```  
 ![Wordpress Meta box and fields](http://192.81.217.195/github/cheesecakePostTypes/2.jpg)  
+See the [Metabox Options Reference](docs/metaboxes_options.md) for details about all available options.  
+See the [Input Options Reference](docs/input_options.md) for details about all available input types and options.  
 
 Create Taxonomy
 ---------------
@@ -50,6 +55,7 @@ $taxonomy = array('singular'=>'Category', 'plural'=>'Categories');
 $movies->addTaxonomy($taxonomy);
 ```  
 ![Wordpress Taxonomy](http://192.81.217.195/github/cheesecakePostTypes/3.jpg)  
+See the [Taxonomy Options Reference](docs/taxonomy_options.md) for details about all available options. 
 
 Using data from other Post Types
 --------------------------------
@@ -65,6 +71,7 @@ $metabox = array(
 $people->addMetabox($metabox, $inputs);
 ```  
 ![Wordpress Multiselect](http://192.81.217.195/github/cheesecakePostTypes/4.jpg)  
+See the [Input Options Reference](docs/input_options.md) for details about all available input types and options.  
 
 Frontend
 --------
@@ -72,7 +79,8 @@ You can use all forms components that CheesecakePostType uses on the frontend al
 ```php
 $companies = new CheesecakePostTypes\InputLoopSelect(array('name'=>'Companies', 'post_type'=>'companies'));
 $companies->render();
-```
+```  
+See the [Input Class Reference](docs/input_classes.md) for a list of available input classes.  
+  
 
 Enjoy and feel free to extend CheesecakePostTypes.  
-Extended readme with all options coming soon.
