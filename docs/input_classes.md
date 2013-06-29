@@ -2,7 +2,7 @@ Input Classes
 =============
 Each form element that CheesecakePostTypes supports has it's own class. If you want you can use them separately.  
   
-All classes are namespaced so you should them like:  
+All classes are namespaced so you should them like:
 ```php
 $companies = new CheesecakePostTypes\InputLoopMultiselect(array('name'=>'Companies', 'post_type'=>'companies'));
 $companies->render();

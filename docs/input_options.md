@@ -47,7 +47,7 @@ If 'remove_label' is the string 'true' it will remove the label.
 
 The 'frontend_selected' option is used together with 'compare' and is useful when you use the class outside meta boxes. If you are using your input separately or somehow setting it's value in a way that it's not from the normal get_post_meta you can set 'frontend_selected' to the string 'true' and 'compare' to the string you want to compare with so it will mark selects, checkboxes and radio buttons as selected if you have a option with the same value.  
   
-Example:  
+Example:
 ```php
 $inputs = array(
 	array('type'=>'text', 'params' => array('name'=>'Movie name', 'input'=> 'name', 'class'=> 'movie_name', 'remove_label'=> 'true'))
@@ -73,7 +73,7 @@ Some types have additional options:
 - loopSelect (extra parameter 'post_type', string)
 - loopMultiselect (extra parameter 'post_type', string), (extra parameter 'max_multiple', number of maximum choices)  
 
-Example:  
+Example:
 ```php
 $inputs = array(
 	array('type'=>'loopMultiselect', 'params' => array('name'=>'Companies', 'post_type'=> 'companies', 'max_multiple'=> '4')),
