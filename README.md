@@ -24,7 +24,8 @@ $postType = array(
 
 $movies = new CheesecakePostTypes\PostType($postType);
 $movies->register();
-```
+```  
+![Wordpress Post Type](http://192.81.217.195/github/cheesecakePostTypes/1.jpg)  
 
 Create Meta boxes
 -----------------
@@ -39,14 +40,16 @@ $metabox = array(
 );
 
 $movies->addMetabox($metabox, $inputs);
-```
+```  
+![Wordpress Meta box and fields](http://192.81.217.195/github/cheesecakePostTypes/2.jpg)  
 
 Create Taxonomy
 ---------------
 ```php
 $taxonomy = array('singular'=>'Category', 'plural'=>'Categories');
 $movies->addTaxonomy($taxonomy);
-```
+```  
+![Wordpress Taxonomy](http://192.81.217.195/github/cheesecakePostTypes/3.jpg)  
 
 Using data from other Post Types
 --------------------------------
@@ -60,7 +63,8 @@ $metabox = array(
 );
 
 $people->addMetabox($metabox, $inputs);
-```
+```  
+![Wordpress Multiselect](http://192.81.217.195/github/cheesecakePostTypes/4.jpg)  
 
 Frontend
 --------
