@@ -25,8 +25,10 @@ The first parameter of the inputs array is 'type'. Here is the list of all the t
 - loopSelect
 - loopMultiselect  
   
-When a 'type' prefix is multiple it means you have to set its options. When a 'type' prefix is loop it means you need to specify the post type from which it will fetch data for your input.  
-You can use all types separately. Please refer to the [Input Classes Reference](input_classes.md).
+When a 'type' prefix is 'multiple' it means you have to set its options.  
+When a 'type' prefix is 'loop' it means you need to specify the post type from which it will fetch data for your input.  
+
+You can use all types separately. Please refer to the [Input Classes Reference](input_classes.md) for more details.
 
 Common options
 --------------
@@ -70,6 +72,7 @@ Some types have additional options:
 - loopRadio (extra parameter 'post_type', string)
 - loopSelect (extra parameter 'post_type', string)
 - loopMultiselect (extra parameter 'post_type', string), (extra parameter 'max_multiple', number of maximum choices)  
+
 Example:  
 ```php
 $inputs = array(

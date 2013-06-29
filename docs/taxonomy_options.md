@@ -9,7 +9,7 @@ Hierarchical can be 'true' or 'false', if set to true it will render as categori
   
 Example:
 ```php
-$taxonomy = array('singular'=>'Category', 'plural'=>'Categories', hierarchical=> 'true');
+$taxonomy = array('singular'=>'Category', 'plural'=>'Categories', 'hierarchical'=> 'true');
 $movies->addTaxonomy($taxonomy);
 ```  
   
