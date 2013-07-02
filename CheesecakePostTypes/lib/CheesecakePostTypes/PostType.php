@@ -27,6 +27,11 @@ class PostType
 		$this->unique_name = $this->sanitize($this->plural_name);
 	}
 
+	public function getUniqueName()
+	{
+		return $this->unique_name;
+	}
+
 	public function sanitize($string)
 	{
 		return strtolower(str_replace(' ', $this->separator, remove_accents( $string )));
@@ -34,7 +39,7 @@ class PostType
 
 	public function register()
 	{
-		$post_type = $this->unique_name;
+		$post_type = this->getUniqueName();
 		$plural = $this->plural_name;
 		$singular = $this->singular_name;
 		$menu_position = $this->menu_position;
@@ -78,7 +83,7 @@ class PostType
 	{
 		$name = $params['name'];
 		$identifier = $this->sanitize($name);
-		$post_type = $this->unique_name;
+		$post_type = this->getUniqueName();
 		$place = $params['place'] ? $params['place'] : 'normal';
 		$priority = $params['priority'] ? $params['priority'] : 'low';
 		$separator = $this->separator;
@@ -149,7 +154,7 @@ class PostType
 
 	public function addTaxonomy($params)
 	{
-		$post_type = $this->unique_name;
+		$post_type = this->getUniqueName();
 		$name = $post_type.$this->separator.$this->sanitize($params['singular']);
 		$singular = $params['singular'];
 		$plural = $params['plural'] ? $params['plural'] : $singular.'s';

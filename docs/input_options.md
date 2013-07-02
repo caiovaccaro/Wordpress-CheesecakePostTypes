@@ -81,4 +81,9 @@ $inputs = array(
 );
 ```  
   
-You can discover your post type identifier clicking on it in your admin panel and looking in the address bar for '?post_type='
+You can discover your post type identifier clicking on it in your admin panel and looking in the address bar for '?post_type=' or by calling the 'getUniqueName' method:  
+```php
+$movies = new CheesecakePostTypes\PostType(array('singular_name'=> 'Movie'));
+
+echo $movies->getUniqueName();
+```  
