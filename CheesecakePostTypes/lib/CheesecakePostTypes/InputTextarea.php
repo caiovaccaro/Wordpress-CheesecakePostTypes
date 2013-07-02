@@ -13,7 +13,7 @@ class InputTextarea extends Forms
 
 	public function render()
 	{
-		$value = preg_replace('#<br\s*?/?>#i', "\n", get_post_meta( $this->post, $this->metaName(), true ));
+		$value = $this->value ? $this->value : preg_replace('#<br\s*?/?>#i', "\n", get_post_meta( $this->post, $this->metaName(), true ));
 		$textarea_class = $this->textarea_class;
 
 		$data = array(

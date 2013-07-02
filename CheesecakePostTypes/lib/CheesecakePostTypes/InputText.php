@@ -13,7 +13,7 @@ class InputText extends Forms
 
 	public function render()
 	{
-		$value = esc_attr( get_post_meta( $this->post, $this->metaName(), true ) );
+		$value = $this->value ? $this->value : esc_attr( get_post_meta( $this->post, $this->metaName(), true ) );
 		$text_class = $this->text_class;
 		
 		$data = array(
