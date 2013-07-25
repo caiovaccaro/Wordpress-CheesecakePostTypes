@@ -25,7 +25,7 @@ class InputLoopRadio extends Forms
 		$loop = new \WP_Query( $args );
 
 		if($loop->have_posts()) : while($loop->have_posts()) : $loop->the_post();
-
+			global $post;
 			$value = get_the_title();
 			$key = str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
 			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);

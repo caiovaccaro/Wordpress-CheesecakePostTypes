@@ -4,36 +4,49 @@ namespace CheesecakePostTypes;
 
 abstract class Forms
 {
-	public $table_class = 'custom-table-primary';
-	public $label_class = 'custom-label-primary';
-	public $label_cell_class = 'custom-label-primary-table';
-	public $input_cell_class = 'custom-input-primary-table';
-	public $separator = '-';
-	public $base_template = 'base.html';
+	protected $table_class = 'custom-table-primary';
+	protected $label_class = 'custom-label-primary';
+	protected $label_cell_class = 'custom-label-primary-table';
+	protected $input_cell_class = 'custom-input-primary-table';
+	protected $separator = '-';
+	protected $base_template = 'base.html';
 	// Input suffix name
-	public $name;
+	protected $name;
 	// Post type name(prefix name)
-	public $context;
+	protected $context;
 	// Post id
-	public $post;
+	protected $post;
 	// Input complete name(overwrite)
-	public $input;
+	protected $input;
 	// Value of input
-	public $value;
+	protected $value;
 	// If input is inline(instead of block - css)
-	public $inline;
+	protected $inline;
 	// Which option of select is selected by default on page load
-	public $frontend_selected;
+	protected $frontend_selected;
 	// Value to compare with
-	public $compare;
+	protected $compare;
 	// Css class
-	public $class;
+	protected $class;
 	// If true don't show input label
-	public $remove_label;
+	protected $remove_label;
+
+	/**
+	 * For WP_Editor
+	 * @var Boolean
+	 */
+	protected $media_buttons;
+
+	/**
+	 * If true in conjunction with 'input' parameter
+	 * overwrites the input name including prefix
+	 * @var Boolean
+	 */
+	protected $overwrite_input_name;
 	// Deprecated
-	public $index;
+	protected $index;
 	// Deprecated
-	public $plugin;
+	protected $plugin;
 
 	public function __construct($args)
 	{
@@ -64,7 +77,9 @@ abstract class Forms
 
 	public function attrName()
 	{
-		if($this->input) {
+		if($this->input && $this->overwrite_input_name) {
+			echo $this->sanitize($this->input);
+		} elseif($this->input) {
 			echo $this->context.$this->separator.$this->sanitize($this->input);
 		} else {
 			echo $this->context.$this->separator.$this->sanitize($this->name);
@@ -73,7 +88,9 @@ abstract class Forms
 
 	public function metaName()
 	{
-		if($this->input) {
+		if($this->input && $this->overwrite_input_name) {
+			return $this->sanitize($this->input);
+		} elseif($this->input) {
 			return $this->context.$this->separator.$this->sanitize($this->input);
 		} else {
 			return $this->context.$this->separator.$this->sanitize($this->name);
@@ -82,9 +99,11 @@ abstract class Forms
 
 	public function retrieveMetaName($params, $context)
 	{
-		if($params['input']) {
+		if(isset($params['input']) && isset($params['overwrite_input_name']) && $params['overwrite_input_name']) {
+			return $this->sanitize($params['input']);
+		} elseif(isset($params['input'])) {
 			return $context.$this->separator.self::sanitize($params['input']);
-		} else {
+		} else if(isset($params['name'])) {
 			return $context.$this->separator.self::sanitize($params['name']);
 		}
 	}
@@ -119,7 +138,6 @@ abstract class Forms
 		$final_data = array_merge($data, $base_data);
 
 		echo $twig->render($this->base_template, $final_data);
-
 	}
 }
 

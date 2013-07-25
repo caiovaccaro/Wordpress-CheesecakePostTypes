@@ -10,6 +10,9 @@
 .postbox:after {
   clear: both;
 }
+#wpbody-content {
+  overflow: visible !important;
+}
 .custom-table-primary {
   width: 100%;
 }
@@ -29,9 +32,6 @@
   padding: 7px;
   margin-bottom: 8px;
   resize: none;
-}
-.custom-input-primary.idiomas {
-  width: 64%;
 }
 .custom-checkbox-loop-primary,
 .custom-radio-loop-primary {

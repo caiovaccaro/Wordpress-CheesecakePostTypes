@@ -2,12 +2,12 @@
 	const PRJ_BASE = __DIR__;
 	const PRJ_NAMESPACE = 'CheesecakePostTypes';
 	// Auto loader class
-	require_once PRJ_BASE.'/lib/SplClassLoader/SplClassLoader.php';
+	require_once PRJ_BASE.'/lib/ClassLoader/ClassLoader.php';
 	require_once PRJ_BASE.'/lib/Twig/Autoloader.php';
 	// Loading twig
 	Twig_Autoloader::register();
 	// Load our classes
-	$classLoader = new SplClassLoader(PRJ_NAMESPACE, PRJ_BASE.'/lib');
+	$classLoader = new ClassLoader(PRJ_NAMESPACE, PRJ_BASE.'/lib');
 	$classLoader->register();
 	$loader = new Twig_Loader_Filesystem(PRJ_BASE.'/templates');
 	$twig = new Twig_Environment($loader, array(

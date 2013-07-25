@@ -8,6 +8,7 @@ class InputSelect extends Forms
 	public $select_wrapper_class = 'custom-select-single';
 	// Options for checkboxes/selects
 	public $options;
+	protected $loop_options;
 
 	public function __construct($args)
 	{
@@ -19,12 +20,16 @@ class InputSelect extends Forms
 		$options = array();
 		$default_select_text = $this->default_select_text;
 		$select_wrapper_class = $this->select_wrapper_class;
-
 		foreach ($this->options as $option) {
-			$key = $this->sanitize($option);
-			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) : Utils::checkForSelect($this->post, $this->metaName(), $key);
-
-			$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $option);
+			if($this->loop_options) {
+				$params = array_merge($option, array('post' => $this->post));
+				$loopOption = new InputLoopSelectOption($params);
+				$options = array_merge($options, $loopOption->retrieveOptions());
+			} else {
+				$key = $this->sanitize($option);
+				$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) : Utils::checkForSelect($this->post, $this->metaName(), $key);
+				$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $option);
+			}
 		}
 
 		$data = array(
