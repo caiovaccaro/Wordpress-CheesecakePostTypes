@@ -1,0 +1,5 @@
+<div class="{{ wrapper_class }}">
+{% for option in options %}
+	<input name="{{ meta_name }}[]" type="checkbox" value="{{ option.key }}" {{ option.selected }}> {{ option.text }}
+{% endfor %}
+</div>
