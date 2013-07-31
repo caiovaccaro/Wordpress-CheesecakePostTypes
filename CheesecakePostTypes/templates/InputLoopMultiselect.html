@@ -1,9 +1,0 @@
-<div class="{{ multiselect_wrapper_class }}">
-	<div class="{{ multiselect_class }}">
-		<select id="{{ meta_name }}" name="{{ meta_name }}[]" multiple {{ max_multiple }} class="{{ chosen_class }}" data-placeholder="{{ placeholder }}" tabindex="1">
-			{% for option in options %}
-				<option value="{{ option.key }}" {{ option.selected }}>{{ option.text }}</option>
-			{% endfor %}	
-		</select> 
-	</div>
-</div>
