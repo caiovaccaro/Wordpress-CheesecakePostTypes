@@ -20,7 +20,7 @@ class InputLoopSelectOption extends Forms
 		if($loop->have_posts()) : while($loop->have_posts()) : $loop->the_post();
 			global $post;
 			$value = get_the_title();
-			$key = $this->sanitize(str_replace('?'.$this->post_type.'=','',(basename(get_permalink()))));
+			$key = $this->valueType == 'id' ? get_the_ID() : str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
 			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) :
 												   Utils::checkForMultipleSelectOption($this->post, $this->metaName(), $key, $this->index, $this->plugin);
 			if($post->ID !== $this->post) {

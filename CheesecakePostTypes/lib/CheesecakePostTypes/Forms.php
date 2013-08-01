@@ -1,48 +1,116 @@
 <?php
-
 namespace CheesecakePostTypes;
 
 abstract class Forms
 {
+	/**
+	 * Default CSS classes
+	 * @var string
+	 */
 	protected $table_class = 'custom-table-primary';
 	protected $label_class = 'custom-label-primary';
 	protected $label_cell_class = 'custom-label-primary-table';
 	protected $input_cell_class = 'custom-input-primary-table';
+
+	/**
+	 * Default separator
+	 * @example: slug-name turn into slugSEPARATORname
+	 * @var string
+	 */
 	protected $separator = '-';
+
+	/**
+	 * Base template file name
+	 * @var string
+	 */
 	protected $base_template = 'base.html';
-	// Input suffix name
+
+	/**
+	 * Value type in case of loops
+	 * To be set in checkboxes, radio buttons, selects
+	 * @example: 'id' or 'slug'
+	 * @var string
+	 */
+	protected $valueType = 'id';
+	
+	/**
+	 * Input suffix name
+	 * @example: postTypeName_suffixName
+	 * @var string
+	 */
 	protected $name;
-	// Post type name(prefix name)
+
+	/**
+	 * Post type name, input prefix name
+	 * @example: postTypeName_suffixName
+	 * @var string
+	 */
 	protected $context;
-	// Post id
+	
+	/**
+	 * Post ID
+	 * @var integer
+	 */
 	protected $post;
-	// Input complete name(overwrite)
+
+	
+	/**
+	 * If set overwrites input complete name
+	 * @var string
+	 */
 	protected $input;
-	// Value of input
+
+	/**
+	 * Input value if it's mean to be set
+	 * @var string|number
+	 */
 	protected $value;
-	// If input is inline(instead of block - css)
+
+	/**
+	 * CSS Inline setting
+	 * @var boolean
+	 */
 	protected $inline;
-	// Which option of select is selected by default on page load
+
+	/**
+	 * If it's mean to set a value and check it as selected
+	 * @var boolean
+	 */
 	protected $frontend_selected;
-	// Value to compare with
+
+	/**
+	 * Value to compare with.
+	 * In case of frontend_selected
+	 * @var string|number
+	 */
 	protected $compare;
-	// Css class
+	
+	/**
+	 * CSS class
+	 * @var string
+	 */
 	protected $class;
-	// If true don't show input label
+	
+	/**
+	 * If true don't show input label
+	 * @var boolean
+	 */
 	protected $remove_label;
 
 	/**
 	 * For WP_Editor
-	 * @var Boolean
+	 * Show or not media buttons
+	 * @var boolean
 	 */
 	protected $media_buttons;
 
 	/**
 	 * If true in conjunction with 'input' parameter
 	 * overwrites the input name including prefix
-	 * @var Boolean
+	 * @var boolean
 	 */
 	protected $overwrite_input_name;
+
 	// Deprecated
 	protected $index;
 	// Deprecated

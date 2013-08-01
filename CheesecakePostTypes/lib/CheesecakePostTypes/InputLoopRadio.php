@@ -27,7 +27,7 @@ class InputLoopRadio extends Forms
 		if($loop->have_posts()) : while($loop->have_posts()) : $loop->the_post();
 			global $post;
 			$value = get_the_title();
-			$key = str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
+			$key = $this->valueType == 'id' ? get_the_ID() : str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
 			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);
 			
 			if($post->ID !== $this->post) {
