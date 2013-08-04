@@ -24,7 +24,8 @@ class InputMultipleCheckbox extends Forms
 
 		foreach ($this->options as $option) {
 			$key = $this->sanitize($option);
-			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);
+			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('checkbox', $option, $this->compare) :
+												   Utils::checkSelectedValue($this->post, $this->metaName(), $key, 'checkbox');
 			$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $option);
 		}
 

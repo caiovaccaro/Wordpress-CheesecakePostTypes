@@ -24,7 +24,8 @@ class InputMultipleRadio extends Forms
 
 		foreach ($this->options as $option) {
 			$key = $this->sanitize($option);
-			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);
+			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('radio', $option, $this->compare) :
+												   Utils::checkSelectedValue($this->post, $this->metaName(), $key, 'radio');
 			$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $option);
 		}
 

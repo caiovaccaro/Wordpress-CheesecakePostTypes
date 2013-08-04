@@ -29,7 +29,8 @@ class InputLoopCheckbox extends Forms
 			global $post;
 			$value = get_the_title();
 			$key = $this->valueType == 'id' ? get_the_ID() : str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
-			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);
+			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('checkbox', $key, $this->compare) :
+												   Utils::checkSelectedValue($this->post, $this->metaName(), $key, 'checkbox');
 			
 			if($post->ID !== $this->post) {
 				$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $value);

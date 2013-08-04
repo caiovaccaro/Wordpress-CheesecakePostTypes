@@ -27,7 +27,8 @@ class InputLoopSelect extends Forms
 			global $post;
 			$value = get_the_title();
 			$key = $this->valueType == 'id' ? get_the_ID() : str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
-			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) : Utils::checkForSelect($this->post, $this->metaName(), $key);
+			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) :
+												   Utils::checkForSelect($this->post, $this->metaName(), $key, 'select');
 			
 			if($post->ID !== $this->post) {
 				$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $value);

@@ -16,7 +16,8 @@ class InputCheckbox extends Forms
 		$checkbox_class = $this->checkbox_class;
 		$value = $this->value;
 		$key = $this->sanitize($value);
-		$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $value, $this->compare) : Utils::checkForCheckbox($this->post, $this->metaName(), $key);
+		$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('checkbox', $value, $this->compare) :
+											   Utils::checkSelectedValue($this->post, $this->metaName(), $key, 'checkbox');
 
 		$data = array(
 			'checkbox_class' => $checkbox_class,

@@ -1,6 +1,7 @@
 <?php
 
 namespace CheesecakePostTypes;
+
 class InputLoopSelectOption extends Forms
 {
 	// Post type for loops
@@ -22,7 +23,7 @@ class InputLoopSelectOption extends Forms
 			$value = get_the_title();
 			$key = $this->valueType == 'id' ? get_the_ID() : str_replace('?'.$this->post_type.'=','',(basename(get_permalink())));
 			$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $key, $this->compare) :
-												   Utils::checkForMultipleSelectOption($this->post, $this->metaName(), $key, $this->index, $this->plugin);
+												   Utils::checkSelectedValue($this->post, $this->metaName(), $key, 'select');
 			if($post->ID !== $this->post) {
 				$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $value);
 			}

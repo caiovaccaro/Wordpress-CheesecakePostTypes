@@ -37,7 +37,8 @@ class InputMultiselect extends Forms
 				$options = array_merge($options, $loopOption->retrieveOptions());
 			} else {
 				$key = $this->sanitize($option);
-				$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) : Utils::checkForMultipleSelect($this->post, $this->metaName(), $key);
+				$selected = $this->frontend_selected ? Utils::checkForFrontendSelected('select', $option, $this->compare) :
+													   Utils::checkSelectedValue($this->post, $this->metaName(), $key, 'select');
 				$options[] = array('key' => $key, 'selected' => $selected, 'text'=> $option);
 			}
 		}

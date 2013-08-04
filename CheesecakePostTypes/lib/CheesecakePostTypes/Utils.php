@@ -2,27 +2,34 @@
 
 namespace CheesecakePostTypes;
 
+/**
+ * General Utility class
+ */
 class Utils
 {
+	/**
+	 * Replaced separator reference
+	 * @var string
+	 */
 	public $separator = '-';
 
-	public function checkForSelect($post, $meta, $value)
+	/**
+	 * Check selected value Selects, Radio, Checkboxes
+	 * @param  integer $post   Post ID
+	 * @param  string  $meta   Custom meta key name
+	 * @param  string  $value  Custom meta value to compare
+	 * @param  string  $type   Input type: select, checkbox, radio
+	 * @return string          Return if selected
+	 */
+	public function checkSelectedValue($post, $meta, $value, $type)
 	{
 		$compare = get_post_meta( $post, $meta, true );
-
-		if($value == $compare) {
-			return 'selected="selected"';
-		}
-	}
-
-	public function checkForMultipleSelect($post, $meta, $value)
-	{
-		$compare = get_post_meta( $post, $meta, true );
+		$selected = $type == 'select' ? 'selected="selected"' : 'checked="checked"';
 
 		if(is_array($compare)) {
 			foreach ($compare as $select) {
 				if($value == $select) {
-					return 'selected="selected"';
+					return $selected;
 				}
 			}
 		} elseif(strpos($compare, ', ')) {
@@ -30,84 +37,39 @@ class Utils
 
 			foreach ($array as $select) {
 				if($value == $select) {
-					return 'selected="selected"';
+					return $selected;
 				}
 			}
 		} else {
 			if($value == $compare) {
-				return 'selected="selected"';
+				return $selected;
 			}
 		}
 	}
 
-	public function checkForMultipleSelectOption($post, $meta, $value, $i, $plugin)
-	{
-		if($plugin) {
-			$compare = get_option($meta);
-		} else {
-			$compare = get_post_meta( $post, $meta, true );		
-		}
-
-		if($i) {
-			$compare = $compare[$i];
-		}
-
-		if(is_array($compare)) {
-			foreach ($compare as $select) {
-				if($value == $select) {
-					return 'selected="selected"';
-				}
-			}
-		} elseif(strpos($compare, ', ')) {
-			$array = explode(', ', $compare);
-
-			foreach ($array as $select) {
-				if($value == $select) {
-					return 'selected="selected"';
-				}
-			}
-		} else {
-			if($value == $compare) {
-				return 'selected="selected"';
-			}
-		}
-	}
-
-	public function checkForCheckbox($post, $meta, $value)
-	{
-		$compare = get_post_meta( $post, $meta, true );
-
-		if(is_array($compare)) {
-			foreach ($compare as $select) {
-				if($value == $select) {
-					return 'checked="checked"';
-				}
-			}
-		} elseif(strpos($compare, ', ')) {
-			$array = explode(', ', $compare);
-
-			foreach ($array as $checkbox) {
-				if($value == $checkbox) {
-					return 'checked="checked"';
-				}
-			}
-		} else {
-			if($value == $compare) {
-				return 'checked="checked"';
-			}
-		}
-	}
-
+	/**
+	 * Check for selected value on outside WP Admin
+	 * @param  string $type    Input type: select, radio, checkbox
+	 * @param  string $value   Actual value
+	 * @param  string $compare Value to compare
+	 * @return string          Return if selected
+	 */
 	public function checkFrontendSelected($type, $value, $compare)
 	{
-		$text = $type == 'checkbox' || $type == 'radio' ? 'checked="checked"' : 'selected="selected"';
+		$selected = $type == 'checkbox' || $type == 'radio' ? 'checked="checked"' : 'selected="selected"';
 
 		if($value == $compare) {
-			return $text;
+			return $selected;
 		}
 	}
 
-	public function getCustomFieldFromSlug($post_type, $id)
+	/**
+	 * Return Post Title from Custom Post Type by ID
+	 * @param  string $post_type
+	 * @param  integer $id       
+	 * @return string            
+	 */
+	public function getPostTypeTitleFromId($post_type, $id)
 	{
 		$args = array( 'post_type' => $post_type, 'nopaging' => true, 'name' => $id );
 		$loop = new \WP_Query( $args );
@@ -116,13 +78,18 @@ class Utils
 
 			return get_the_title();
 
-		endwhile; wp_reset_postdata();  endif;
+		endwhile; wp_reset_postdata(); endif;
 	}
 
+	/**
+	 * Return Page Id by slug
+	 * @param  string $page_slug
+	 * @return integer
+	 */
 	public function getPageIdBySlug($page_slug)
 	{
 	    $page = get_page_by_path($page_slug);
-	    if ($page) {
+	    if($page) {
 	        return $page->ID;
 	    } else {
 	        return null;
