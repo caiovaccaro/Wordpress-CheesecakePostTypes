@@ -5,13 +5,8 @@ namespace CheesecakePostTypes;
 /**
  * General Utility class
  */
-class Utils
+class Utils extends Cheese
 {
-	/**
-	 * Replaced separator reference
-	 * @var string
-	 */
-	public $separator = '-';
 
 	/**
 	 * Check selected value Selects, Radio, Checkboxes

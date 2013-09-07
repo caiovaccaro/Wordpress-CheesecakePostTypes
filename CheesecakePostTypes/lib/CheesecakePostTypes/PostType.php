@@ -2,7 +2,7 @@
 
 namespace CheesecakePostTypes;
 
-class PostType
+class PostType extends Cheese
 {
 	private $name;
 	private $unique_name;
@@ -14,7 +14,6 @@ class PostType
 	private $hierarchical;
 	private $show_in_menu;
 	private $show_ui;
-	public $separator = '-';
 
 	public function __construct($params)
 	{
@@ -35,11 +34,6 @@ class PostType
 	public function getUniqueName()
 	{
 		return $this->unique_name;
-	}
-
-	public function sanitize($string)
-	{
-		return strtolower(str_replace(' ', $this->separator, remove_accents( $string )));
 	}
 
 	public function register()

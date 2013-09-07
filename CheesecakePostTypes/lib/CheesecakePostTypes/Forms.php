@@ -1,7 +1,7 @@
 <?php
 namespace CheesecakePostTypes;
 
-abstract class Forms
+abstract class Forms extends Cheese
 {
 	/**
 	 * Default CSS classes
@@ -11,19 +11,6 @@ abstract class Forms
 	protected $label_class = 'custom-label-primary';
 	protected $label_cell_class = 'custom-label-primary-table';
 	protected $input_cell_class = 'custom-input-primary-table';
-
-	/**
-	 * Default separator
-	 * @example: slug-name turn into slugSEPARATORname
-	 * @var string
-	 */
-	protected $separator = '-';
-
-	/**
-	 * Base template file name
-	 * @var string
-	 */
-	protected $base_template = 'base.html';
 
 	/**
 	 * Value type in case of loops
@@ -136,11 +123,6 @@ abstract class Forms
 		if(isset($args['frontend_selected'])) {
 			$this->frontend_selected = $args['frontend_selected'] == 'true' ? true : false;
 		}
-	}
-
-	public function sanitize($string)
-	{
-		return strtolower(str_replace(' ', $this->separator, remove_accents( $string )));
 	}
 
 	public function attrName()
