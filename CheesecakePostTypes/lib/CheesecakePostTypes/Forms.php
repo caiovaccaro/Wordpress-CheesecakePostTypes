@@ -111,7 +111,7 @@ abstract class Forms extends Cheese
 			}
 		}
 
-		if(!isset($args['post'])) {
+		if(!isset($args['post']) && isset($post)) {
 			global $post;
 			$this->post = $post->ID;
 		}

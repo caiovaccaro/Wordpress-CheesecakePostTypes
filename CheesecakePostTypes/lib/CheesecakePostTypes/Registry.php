@@ -2,7 +2,7 @@
 
 namespace CheesecakePostTypes;
 
-class Registry
+class Registry extends Cheese
 {
 	/**
 	 * Global register of classes

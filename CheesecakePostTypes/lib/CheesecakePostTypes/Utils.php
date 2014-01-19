@@ -66,7 +66,7 @@ class Utils extends Cheese
 	 */
 	public function getPostTypeTitleFromId($post_type, $id)
 	{
-		$args = array( 'post_type' => $post_type, 'nopaging' => true, 'name' => $id );
+		$args = array( 'post_type' => $post_type, 'nopaging' => true, 'p' => $id );
 		$loop = new \WP_Query( $args );
 
 		if($loop->have_posts()) : while($loop->have_posts()) : $loop->the_post();
