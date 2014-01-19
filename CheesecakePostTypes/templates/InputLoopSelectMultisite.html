@@ -1,0 +1,8 @@
+<div class="{{ select_wrapper_class }}">
+	<select id="{{ meta_name }}" name="{{ meta_name }}">
+		<option value="">{{ default_select_text }}</option>
+		{% for option in options %}
+			<option value="{{ option.key }}" {{ option.selected }}>{{ option.text }}</option>
+		{% endfor %}
+	</select>
+</div>
