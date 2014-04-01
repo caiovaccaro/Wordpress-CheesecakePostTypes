@@ -150,6 +150,8 @@ class PostType extends Cheese
 				if(isset($_POST[$input])) {
 					$post_data = $_POST[$input];
 					update_post_meta( $post->ID, $input, $post_data );
+				} else {
+					update_post_meta( $post->ID, $input, '' );
 				}
 			}
 		});
