@@ -1,6 +1,6 @@
 CheesecakePostTypes
 ===================
-**v 0.9**  
+**v 0.9.0**  
 CheesecakePostTypes helps you to build your Wordpress project. In big websites with a lot of post types and custom fields you can get your self repeating a lot of code. This Class is a result of just that.
 
 It uses CSS for a responsive and clean look and also [Chosen](http://harvesthq.github.io/chosen/) for multiple selects.  
