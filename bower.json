@@ -1,0 +1,24 @@
+{
+  "name": "CheesecakePostTypes",
+  "version": "0.9",
+  "homepage": "https://github.com/caiovaccaro/Wordpress-CheesecakePostTypes",
+  "authors": [
+    "Caio Vaccaro <caiovaccaromora@gmail.com>"
+  ],
+  "description": "Easily create Wordpress Post Types for Backend and Frontend",
+  "main": "CheesecakePostTypes/Base.php",
+  "keywords": [
+    "wordpress",
+    "posttypes",
+    "forms",
+    "inputs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
