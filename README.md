@@ -1,4 +1,4 @@
-CheesecakePostTypes
+CheesecakePostTypes (not maintained anymore)
 ===================
 **v 0.9.1**  
 CheesecakePostTypes helps you to build your Wordpress project. In big websites with a lot of post types and custom fields you can get your self repeating a lot of code. This Class is a result of just that.
